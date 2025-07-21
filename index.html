@@ -9,10 +9,10 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
     :root {
-      --main-colour: #499EB6;
-      --dark-colour: #3c8296;
-      --light-colour: #77B6C8;
-      --super-light: #ebf4f7;
+      --main-colour: #486f9b;
+      --dark-colour: #1b3a57;
+      --light-colour: #c3bef7;
+      --super-light: #f0f1f5;
       --text-colour: #333;
       --white: #fff;
     }
@@ -113,10 +113,13 @@
       box-shadow: none;
     }
 
-    .banner-content h2 {
-      font-size: 1.2rem;
-      margin-bottom: 52px;
-      font-weight: normal;
+    .banner-content .banner-content-box {
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 32px; 
+      width: 100%;
     }
 
     .banner-content .big-logo {
@@ -136,6 +139,7 @@
       font-weight: bold;
       transition: background 0.2s;
       text-decoration: none;
+      /* display: none; */
     }
 
     .banner-content .booking-button:hover {
@@ -188,13 +192,6 @@
       padding: 36px 20px 28px 20px;
       text-align: center;
       transition: box-shadow 0.2s;
-    }
-    .service-card:hover {
-      box-shadow: 0 4px 24px rgba(26,35,126,0.15);
-    }
-    .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 18px;
     }
     .service-card h3 {
       font-size: 1.2rem;
@@ -470,7 +467,8 @@
       justify-content: center;
       align-items: flex-start;
       gap: 64px;
-      max-width: 1300px;
+      max-width: 1100px;
+      padding: 0 32px;
       margin: 0 auto 32px auto;
       flex-wrap: wrap;
       text-align: left;
@@ -542,7 +540,6 @@
       max-width: 600px;
       min-width: 260px;
       margin: 0;
-      padding: 0 12px;
       background: none;
       box-shadow: none;
       display: flex;
@@ -584,9 +581,10 @@
   <section class="banner" id="banner">
     <span class="banner-shadow"></span>
     <div class="banner-content">
-      <img class="big-logo" src="big-logo.svg" alt="MySite Logo">
-      <h2>Your local dentist clinic</h2>
-      <a href="https://www.google.com" class="booking-button">Book Appointment</a>
+      <div class="banner-content-box">
+        <img class="big-logo" src="big-logo.svg" alt="MySite Logo">
+        <a href="https://www.google.com" class="booking-button">Book Appointment</a>
+      </div>
     </div>
   </section>
 
@@ -595,34 +593,28 @@
     <h2 class="services-title">Our Services</h2>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon">🦷</div>
-        <h3>Dental Cleaning</h3>
-        <p>Professional cleaning for a healthy, bright smile.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">😁</div>
-        <h3>Teeth Whitening</h3>
-        <p>Safe and effective whitening treatments.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🦷</div>
-        <h3>Checkups</h3>
-        <p>Comprehensive exams for all ages.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🪥</div>
-        <h3>Oral Hygiene</h3>
-        <p>Personalized hygiene advice and care.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🦷</div>
         <h3>Fillings</h3>
         <p>Modern, pain-free cavity treatments.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🦷</div>
-        <h3>Braces</h3>
-        <p>Straighten your teeth with expert orthodontics.</p>
+        <h3>Checkups</h3>
+        <p>Comprehensive exams for all ages.</p>
+      </div>
+      <div class="service-card">
+        <h3>Tooth Extractions</h3>
+        <p>Gentle and safe removal of problematic teeth for your oral health.</p>
+      </div>
+      <div class="service-card">
+        <h3>Dental X-Rays</h3>
+        <p>Advanced digital X-rays for accurate diagnosis and treatment planning.</p>
+      </div>
+      <div class="service-card">
+        <h3>Hygiene Services</h3>
+        <p>Professional cleaning and personalized oral hygiene advice for a healthy smile.</p>
+      </div>
+      <div class="service-card">
+        <h3>Teeth Whitening</h3>
+        <p>Safe and effective whitening treatments to brighten your teeth.</p>
       </div>
     </div>
   </section>
