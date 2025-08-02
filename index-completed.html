@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Oxford Dental provides professional dental care, checkups, and orthodontics in Oxford, NZ. Friendly, modern clinic for all ages. Book your appointment today!">
+  <meta name="robots" content="index, follow">
+  <title>Oxford Dental</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --main-colour: #486f9b;
+      --dark-colour: #1b3a57;
+      --light-colour: #c3bef7;
+      --super-light: #f0f1f5;
+      --text-colour: #333;
+      --white: #fff;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      /* font-family: Arial, sans-serif; */
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+      background: var(--white);
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      background: transparent;
+      padding: 0 5vw;
+      height: 64px;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    .navbar.scrolled {
+      background: var(--main-colour);
+      transition: background 0.25s;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      margin-right: 0;
+      margin-left: 16px;
+    }
+
+    .navbar .logo img {
+      height: 45px;
+      margin-right: 12px;
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 3vw;
+      margin-right: 16px;
+    }
+
+    .navbar .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    .navbar .nav-links a:hover {
+      color: var(--dark-colour);
+    }
+
+    @media (max-width: 600px) {
+      .navbar .nav-links {
+        display: none;
+      }
+    }
+
+    /* Banner Section */
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      background: url('banner.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 70%;
+      transform: translate(-50%, -50%);
+      color: var(--white);
+      text-align: center;
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .banner-content .banner-content-box {
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 32px; 
+      width: 100%;
+    }
+
+    .banner-content .big-logo {
+      max-width: 350px;
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-content .booking-button {
+      padding: 12px 32px;
+      font-size: 1rem;
+      background: var(--main-colour);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+      text-decoration: none;
+      /* display: none; */
+    }
+
+    .banner-content .booking-button:hover {
+      background: var(--dark-colour);
+    }
+
+    .banner .banner-shadow {
+      position: absolute;
+      top: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 60%;
+      width: 90%;
+      background: radial-gradient(#0000007d 12%, #ffffff00 70%);
+      pointer-events: none;
+    }
+
+    /* Our Services Section */
+    .services-section {
+      background: var(--white);
+      padding: 64px 0 64px 0;
+      scroll-margin-block-start: 64px;
+    }
+    .services-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--main-colour);
+      margin-bottom: 40px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .service-card {
+      background: var(--super-light);
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(26,35,126,0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 36px 20px 28px 20px;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .service-card h3 {
+      font-size: 1.2rem;
+      color: var(--dark-colour);
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: var(--text-colour);
+    }
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .services-section {
+        padding: 32px 0;
+        scroll-margin-block-start: 32px;
+      }
+      .services-title {
+        font-size: 1.3rem;
+        margin-bottom: 24px;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 20px;
+        padding: 0 10px;
+      }
+      .service-card {
+        padding: 24px 10px 18px 10px;
+      }
+    }
+
+    /* About Us Section */
+    .about-section {
+      background: var(--super-light);
+      padding: 64px 0;
+      scroll-margin-block-start: 64px;
+    }
+    .about-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--dark-colour);
+      margin-bottom: 40px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .about-content {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: center;
+      gap: 48px;
+      padding: 0 32px;
+    }
+    .about-image img {
+      width: 320px;
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 24px rgba(26,35,126,0.10);
+      display: block;
+    }
+    .about-text {
+      flex: 1;
+      font-size: 1.1rem;
+      color: var(--text-colour);
+      line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+      .about-content {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+      .about-image img {
+        margin: 0 auto;
+      }
+    }
+    @media (max-width: 600px) {
+      .about-section {
+        padding: 32px 0;
+        scroll-margin-block-start: 32px;
+      }
+      .about-title {
+        font-size: 1.3rem;
+        margin-bottom: 24px;
+      }
+      .about-content {
+        padding: 0 10px;
+      }
+      .about-text {
+        font-size: 1rem;
+      }
+    }
+
+    /* Our Facilities Section */
+    .facilities-section {
+      background: var(--white);
+      padding: 64px 0;
+      scroll-margin-block-start: 64px;
+    }
+    .facilities-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--main-colour);
+      margin-bottom: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .facilities-desc {
+      text-align: center;
+      color: var(--text-colour);
+      font-size: 1.1rem;
+      margin-bottom: 36px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .facilities-grid img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(26,35,126,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+      background: var(--white);
+      display: block;
+      cursor: pointer;
+    }
+    .zoom-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1999;
+      cursor: zoom-out;
+    }
+    .zoomed-img {
+      z-index: 2000;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      max-width: 90vw;
+      max-height: 90vh;
+      width: 55%;
+      height: auto;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 8px 40px rgba(26,35,126,0.25);
+      background: var(--white);
+      border-radius: 6px;
+      transition: none;
+      display: block;
+      object-fit: contain;
+    }
+    @media (max-width: 900px) {
+      .facilities-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .facilities-section {
+        padding: 32px 0;
+        scroll-margin-block-start: 32px;
+      }
+      .facilities-title {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+      }
+      .facilities-desc {
+        font-size: 1rem;
+        margin-bottom: 18px;
+      }
+      .facilities-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 0 10px;
+      }
+    }
+
+    /* Responsive adjustments for banner and navbar */
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 16px;
+      }
+      .navbar .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 8px;
+      }
+      .banner {
+        height: 600px;
+      }
+      .banner-content {
+        padding: 20px 10px 16px 10px;
+      }
+      .banner-content h1 {
+        font-size: 1.3rem;
+      }
+      .banner-content h2 {
+        font-size: 1rem;
+      }
+    }
+
+    /* Footer / Contact Us Section */
+    .footer-section {
+      background: var(--dark-colour);
+      color: var(--white);
+      padding: 64px 0 24px 0;
+      scroll-margin-block-start: 64px;
+      text-align: center;
+    }
+    .footer-title {
+      font-size: 2rem;
+      margin-bottom: 32px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--dark-colour);
+    }
+    .footer {
+      margin-top: 32px;
+    }
+    .footer-paragraph {
+      padding: 0 12px;
+      font-size: 0.7rem;
+      color: var(--light-colour);
+      margin-top:8px; 
+    }
+    .footer-paragraph a {
+      color: var(--light-colour);
+    }
+    @media (max-width: 600px) {
+      .footer-title {
+        font-size: 1.3rem;
+        margin-bottom: 18px;
+      }
+      .footer-details {
+        font-size: 1rem;
+        gap: 14px;
+        padding: 0 16px;
+        text-align: left;
+        max-width: 100%;
+        word-break: break-word;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .footer-details p,
+      .footer-details a {
+        word-break: break-word;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 64px;
+      max-width: 1100px;
+      padding: 0 32px;
+      margin: 0 auto 32px auto;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+    .footer-details {
+      flex: 1 1 250px;
+      color: var(--white);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      padding-top: 8px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .footer-details a {
+      color: var(--white);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .footer-details a:hover {
+      text-decoration: underline;
+      color: var(--light-colour);
+    }
+    @media (max-width: 900px) {
+      .footer-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 28px;
+        text-align: left;
+        max-width: 100%;
+      }
+      .footer-details {
+        max-width: 100%;
+        padding: 0 16px;
+        gap: 20px;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-content {
+        gap: 16px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .footer-title {
+        font-size: 1.3rem;
+        margin-bottom: 18px;
+      }
+      .footer-details {
+        font-size: 1rem;
+        gap: 14px;
+        padding: 0 16px;
+        text-align: left;
+        max-width: 100%;
+        word-break: break-word;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .footer-details p,
+      .footer-details a {
+        word-break: break-word;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .footer-content .map {
+      width: 100%;
+      max-width: 600px;
+      min-width: 260px;
+      margin: 0;
+      background: none;
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 900px) {
+      .footer-content .map {
+        max-width: 100%;
+        margin: 0 auto 16px auto;
+        padding: 0 8px;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-content .map {
+        max-width: 100%;
+        margin: 0 0 12px 0;
+        padding: 0 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.svg" alt="Logo">
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Banner Section -->
+  <section class="banner" id="banner">
+    <span class="banner-shadow"></span>
+    <div class="banner-content">
+      <div class="banner-content-box">
+        <img class="big-logo" src="big-logo.svg" alt="MySite Logo">
+        <a href="https://www.google.com" class="booking-button">Book Appointment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Services Section -->
+  <section class="services-section" id="services">
+    <h2 class="services-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Fillings</h3>
+        <p>Minimally invasive treatment using conservative, comfortable techniques and appropriate materials</p>
+      </div>
+      <div class="service-card">
+        <h3>Checkups</h3>
+        <p>Comprehensive exams for all ages.</p>
+      </div>
+      <div class="service-card">
+        <h3>Tooth Extractions</h3>
+        <p>Gentle and safe removal of problematic teeth for your oral health.</p>
+      </div>
+      <div class="service-card">
+        <h3>Dental X-Rays</h3>
+        <p>Advanced digital X-rays for accurate diagnosis and treatment planning.</p>
+      </div>
+      <div class="service-card">
+        <h3>Hygiene Services</h3>
+        <p>Professional cleaning and personalised oral hygiene advice for a healthy smile.</p>
+      </div>
+      <div class="service-card">
+        <h3>Teeth Whitening</h3>
+        <p>Safe and effective whitening treatments to brighten your smile.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about-section" id="about">
+    <h2 class="about-title">About Us</h2>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80" alt="About Us Team">
+      </div>
+      <div class="about-text">
+        <p>
+          We are here to serve Oxford and the surrounding area with general dental services. We are a team of people who truly love their work and are dedicated to serving our community and you. We love getting to know you, listening to your story, trying to understand what you need from us and how we can help you most.
+        </p>
+        <p>
+          We can provide you with urgent care and also general maintenance of your teeth and oral health. We welcome both teenagers using the free dental health scheme and younger children when referred by the school dental therapists. We can also help with ACC treatment and those who require funding help with WINZ.
+        </p>
+        <p>
+          We look forward to meeting you and answering your queries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Facilities Section -->
+  <section class="facilities-section" id="facilities">
+    <h2 class="facilities-title">Our Facilities</h2>
+    <p class="facilities-desc">
+      Explore our modern, comfortable, and fully equipped dental facilities designed for your care and comfort.
+    </p>
+    <div class="facilities-grid">
+      <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80" alt="Facility 1">
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Facility 2">
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Facility 3">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Facility 4">
+      <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?auto=format&fit=crop&w=400&q=80" alt="Facility 5">
+      <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=400&q=80" alt="Facility 6">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Facility 7">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Facility 8">
+      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Facility 9">
+    </div>
+  </section>
+
+  <!-- Footer / Contact Us Section -->
+  <footer class="footer-section" id="contact">
+    <h2 class="footer-title">Contact Us</h2>
+    <div class="footer-content">
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46465.76327761431!2d172.15409005814112!3d-43.29101374676796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d2e1e768e5ab611%3A0x61d25c77ff0afa39!2s634%20Bay%20Road%2C%20Oxford%207430!5e0!3m2!1sen!2snz!4v1749355978416!5m2!1sen!2snz" width="600" height="450" style="border:0; border-radius: 6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="footer-details">
+        <p>
+          Opening hours by appointment.
+        </p>
+        <a target="_blank" href="https://maps.app.goo.gl/rwfAUJXQczVTcfFdA">
+          634 Bay Road, Oxford 7430
+        </a>
+        <p>
+          <a href="tel:+441234567890">021 273 6963</a><br>
+          <a href="tel:+441234567890">03 423 9424</a><br>
+          <a href="mailto:info@oxforddental.co.nz">reception@oxforddental.co.nz</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer">
+      <p class="footer-paragraph">&copy; 2025 Oxford Dental Limited t/a Oxford Dental. All rights reserved.</p>
+      <p class="footer-paragraph">
+        Header image by <a href="https://commons.wikimedia.org/wiki/File:View_from_Mt_Oxford,_Oxford_Forest_Conservation_Area,_Canterbury,_New_Zealand.jpg" target="_blank" style="color:#b3d3df; text-decoration:underline;">Michal Klajban</a>,
+        <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>, via Wikimedia Commons
+      </p>
+      <p class="footer-paragraph">Website by <a href="https://github.com/Gordei-Kuznetsov" target="_blank">GK</a></p>
+
+    </div>
+  </footer>
+
+  <script>
+    // Navbar transparency on scroll
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (!navbar) return;
+      if (window.scrollY > 150) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Zoom in on facilities image on click
+    document.querySelectorAll('.facilities-grid img').forEach(function(img) {
+      img.addEventListener('click', function () {
+        // Prevent multiple zooms
+        if (document.querySelector('.zoom-overlay')) return;
+
+        // Prevent page scroll
+        document.body.style.overflow = 'hidden';
+
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'zoom-overlay';
+        document.body.appendChild(overlay);
+
+        // Create zoomed image copy
+        const zoomedImg = document.createElement('img');
+        zoomedImg.src = img.src;
+        zoomedImg.alt = img.alt;
+        zoomedImg.className = 'zoomed-img';
+        document.body.appendChild(zoomedImg);
+
+        // Remove zoom on overlay or zoomed image click
+        function removeZoom() {
+          zoomedImg.remove();
+          overlay.remove();
+          document.body.style.overflow = ''; // Restore scroll
+          overlay.removeEventListener('click', removeZoom);
+          zoomedImg.removeEventListener('click', removeZoom);
+        }
+        overlay.addEventListener('click', removeZoom);
+        zoomedImg.addEventListener('click', removeZoom);
+      });
+    });
+  </script>
+</body>
+</html>
