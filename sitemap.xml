@@ -3,21 +3,26 @@
   <url>
     <loc>https://oxforddental.co.nz/</loc>
     <priority>1.0</priority>
+    <lastmod>2025-08-15</lastmod>
   </url>
   <url>
     <loc>https://oxforddental.co.nz/#services</loc>
     <priority>0.8</priority>
+    <lastmod>2025-08-15</lastmod>
   </url>
   <url>
     <loc>https://oxforddental.co.nz/#about</loc>
     <priority>0.8</priority>
+    <lastmod>2025-08-15</lastmod>
   </url>
   <url>
     <loc>https://oxforddental.co.nz/#facilities</loc>
     <priority>0.7</priority>
+    <lastmod>2025-08-15</lastmod>
   </url>
   <url>
     <loc>https://oxforddental.co.nz/#contact</loc>
     <priority>0.7</priority>
+    <lastmod>2025-08-15</lastmod>
   </url>
 </urlset>
