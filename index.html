@@ -479,6 +479,34 @@
       flex-wrap: wrap;
       text-align: left;
     }
+    /* Opening Hours Styles */
+    .opening-hours {
+      font-size: 1.08rem;
+    }
+    .opening-hours-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .opening-hours-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .opening-hours-list li {
+      margin-bottom: 4px;
+      font-size: 1.08rem;
+    }
+    @media (max-width: 600px) {
+      .opening-hours {
+        font-size: 1rem;
+        max-width: 100%;
+      }
+      .opening-hours-title {
+        font-size: 1rem;
+      }
+    }
     .footer-details {
       flex: 1 1 250px;
       color: var(--white);
@@ -665,9 +693,14 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46465.76327761431!2d172.15409005814112!3d-43.29101374676796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d2e1e768e5ab611%3A0x61d25c77ff0afa39!2s634%20Bay%20Road%2C%20Oxford%207430!5e0!3m2!1sen!2snz!4v1749355978416!5m2!1sen!2snz" width="600" height="450" style="border:0; border-radius: 6px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="footer-details">
-        <p>
-          Opening hours by appointment.
-        </p>
+        <div class="opening-hours">
+          <div class="opening-hours-title">Opening Hours</div>
+          <ul class="opening-hours-list">
+            <li>Tue: 10:00 AM - 04:00 PM</li>
+            <li>Wed: 09:00 AM - 04:00 PM</li>
+            <li>Thu: 09:00 AM - 04:00 PM</li>
+          </ul>
+        </div>
         <p>
           <a target="_blank" href="https://maps.app.goo.gl/rwfAUJXQczVTcfFdA">
             634 Bay Road, Oxford 7430
